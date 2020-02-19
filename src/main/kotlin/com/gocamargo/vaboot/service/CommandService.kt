@@ -1,6 +1,6 @@
-package com.gocamargo.vaboo.service
+package com.gocamargo.vaboot.service
 
-import com.gocamargo.vaboo.util.ResponseMessage
+import com.gocamargo.vaboot.util.ResponseMessage
 
 interface CommandService {
     fun handleCommand(requestMessage: String): ResponseMessage

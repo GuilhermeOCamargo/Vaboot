@@ -1,4 +1,4 @@
-package com.gocamargo.vaboo.configuration
+package com.gocamargo.vaboot.component
 import com.natpryce.konfig.*
 import com.natpryce.konfig.ConfigurationProperties.Companion.systemProperties
 import java.io.File
@@ -9,5 +9,5 @@ val my_team_url = Key("page.globoesporte.url", stringType)
 
 val propertiesConfig = systemProperties() overriding
         EnvironmentVariables() overriding
-        ConfigurationProperties.fromFile(File("/resources/")) overriding
+//        ConfigurationProperties.fromFile(File("/resources/")) overriding
         ConfigurationProperties.fromResource("application.properties")

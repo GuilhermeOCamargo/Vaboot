@@ -1,4 +1,4 @@
-package com.gocamargo.vaboo.util
+package com.gocamargo.vaboot.util
 
 import org.jsoup.Jsoup
 import org.jsoup.select.Elements

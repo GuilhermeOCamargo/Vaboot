@@ -1,8 +1,8 @@
-package com.gocamargo.vaboo.service.strategy
+package com.gocamargo.vaboot.service.strategy
 
-import com.gocamargo.vaboo.exception.NotYetImplementedException
-import com.gocamargo.vaboo.service.CommandService
-import com.gocamargo.vaboo.util.ResponseMessage
+import com.gocamargo.vaboot.exception.NotYetImplementedException
+import com.gocamargo.vaboot.service.CommandService
+import com.gocamargo.vaboot.util.ResponseMessage
 
 class StartCommandStrategy : CommandService {
     companion object{

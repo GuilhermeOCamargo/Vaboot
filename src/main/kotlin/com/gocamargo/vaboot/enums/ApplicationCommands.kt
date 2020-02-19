@@ -1,8 +1,8 @@
-package com.gocamargo.vaboo.enums
+package com.gocamargo.vaboot.enums
 
-import com.gocamargo.vaboo.service.CommandService
-import com.gocamargo.vaboo.service.strategy.MyTeamCommandStrategy
-import com.gocamargo.vaboo.service.strategy.StartCommandStrategy
+import com.gocamargo.vaboot.service.CommandService
+import com.gocamargo.vaboot.service.strategy.MyTeamCommandStrategy
+import com.gocamargo.vaboot.service.strategy.StartCommandStrategy
 
 enum class ApplicationCommands (private val commandDef: String, val service: CommandService ){
     START("/start", StartCommandStrategy.instance),

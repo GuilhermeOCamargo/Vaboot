@@ -1,4 +1,4 @@
-package com.gocamargo.vaboo.exception
+package com.gocamargo.vaboot.exception
 
 import java.lang.RuntimeException
 

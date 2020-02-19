@@ -1,9 +1,10 @@
-package com.gocamargo.vaboo.service
+package com.gocamargo.vaboot.service
 
-import com.gocamargo.vaboo.configuration.propertiesConfig
-import com.gocamargo.vaboo.configuration.*
-import com.gocamargo.vaboo.enums.ApplicationCommands
-import com.gocamargo.vaboo.util.ResponseMessage
+import com.gocamargo.vaboot.component.propertiesConfig
+import com.gocamargo.vaboot.component.*
+import com.gocamargo.vaboot.enums.ApplicationCommands
+import com.gocamargo.vaboot.util.ResponseMessage
+import com.gocamargo.vaboot.util.toMessageResponse
 import org.telegram.telegrambots.bots.TelegramLongPollingBot
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 import org.telegram.telegrambots.meta.api.objects.Update
@@ -18,10 +19,10 @@ class TelegramConnectionComponent: TelegramLongPollingBot(){
     override fun getBotToken(): String = telegramToken!!
 
     override fun onUpdateReceived(update: Update?) {
-        if(update!!.hasMessage())
-            val responseMessage = SendMessage().setChatId(update.message.chatId)
-            handleMessage(update.message.text)
-                    .map {  }
+        if(update!!.hasMessage()){
+            var responseMessage = SendMessage().setChatId(update.message.chatId)
+            responseMessage.text = handleMessage(update.message.text).toMessageResponse()
+        }
     }
 
 

@@ -1,4 +1,4 @@
-package com.gocamargo.vaboo.component
+package com.gocamargo.vaboot.component
 import com.natpryce.konfig.*
 import com.natpryce.konfig.ConfigurationProperties.Companion.systemProperties
 import java.io.File

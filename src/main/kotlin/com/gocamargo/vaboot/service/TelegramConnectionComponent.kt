@@ -2,7 +2,7 @@ package com.gocamargo.vaboot.service
 
 import com.gocamargo.vaboot.component.propertiesConfig
 import com.gocamargo.vaboot.component.*
-import com.gocamargo.vaboot.enums.ApplicationCommands
+import com.gocamargo.vaboot.exception.NotYetImplementedException
 import com.gocamargo.vaboot.util.ResponseMessage
 import com.gocamargo.vaboot.util.toMessageResponse
 import org.telegram.telegrambots.bots.TelegramLongPollingBot
@@ -25,9 +25,23 @@ class TelegramConnectionComponent: TelegramLongPollingBot(){
         }
     }
 
+    // EXAMPLE to show fun as val
+//    fun executeCommand(message :String) : ResponseMessage  {
+    val executeCommand: (String) -> ResponseMessage = { message ->
+        when (message) {
+            "start" ->{
+                throw NotYetImplementedException("cmd 'start' Não implementado")
+            }
+            "myTeam" -> {
+                throw NotYetImplementedException("cmd 'myTeam' Não implementado")
+            }
+            else -> {
+                throw NotYetImplementedException("Não implementado")
+            }
+        }
+    }
 
-    private fun handleMessage(message: String): ResponseMessage =
-            ApplicationCommands.fromMessage(parseMessage(message)).service.handleCommand(message)
+    private fun handleMessage(message: String): ResponseMessage = executeCommand(parseMessage(message))
 
     private fun parseMessage(message: String): String =
             if(message.indexOf(" ")>0)

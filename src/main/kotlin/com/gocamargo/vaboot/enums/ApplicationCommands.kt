@@ -5,8 +5,8 @@ import com.gocamargo.vaboot.service.strategy.MyTeamCommandStrategy
 import com.gocamargo.vaboot.service.strategy.StartCommandStrategy
 
 enum class ApplicationCommands (private val commandDef: String, val service: CommandService ){
-    START("/start", StartCommandStrategy.instance),
-    MYTEAM("/myteam", MyTeamCommandStrategy.instance);
+    START("/start", StartCommandStrategy),
+    MYTEAM("/myteam", MyTeamCommandStrategy);
 
     companion object{
         @JvmStatic

@@ -4,10 +4,8 @@ import com.gocamargo.vaboot.exception.NotYetImplementedException
 import com.gocamargo.vaboot.service.CommandService
 import com.gocamargo.vaboot.util.ResponseMessage
 
-class MyTeamCommandStrategy : CommandService {
-    companion object{
-        val instance = MyTeamCommandStrategy()
-    }
+object MyTeamCommandStrategy : CommandService {
+
     override fun handleCommand(requestMessage: String): ResponseMessage {
         throw NotYetImplementedException("Não implementado")
     }

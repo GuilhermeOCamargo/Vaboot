@@ -1,8 +1,9 @@
 package com.gocamargo.vaboot.service
 
-import com.gocamargo.vaboot.component.propertiesConfig
-import com.gocamargo.vaboot.component.*
+import com.gocamargo.vaboot.configuration.propertiesConfig
 import com.gocamargo.vaboot.enums.ApplicationCommands
+import com.gocamargo.vaboot.configuration.telegram_token
+import com.gocamargo.vaboot.configuration.telegram_username
 import com.gocamargo.vaboot.util.ResponseMessage
 import com.gocamargo.vaboot.util.toMessageResponse
 import org.telegram.telegrambots.bots.TelegramLongPollingBot

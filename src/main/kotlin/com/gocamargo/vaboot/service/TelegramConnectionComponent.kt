@@ -1,9 +1,10 @@
 package com.gocamargo.vaboot.service
 
-import com.gocamargo.vaboot.configuration.propertiesConfig
+import com.gocamargo.vaboot.configuration.PropertySource
+//import com.gocamargo.vaboot.configuration.propertiesConfig
 import com.gocamargo.vaboot.enums.ApplicationCommands
-import com.gocamargo.vaboot.configuration.telegram_token
-import com.gocamargo.vaboot.configuration.telegram_username
+//import com.gocamargo.vaboot.configuration.telegram_token
+//import com.gocamargo.vaboot.configuration.telegram_username
 import com.gocamargo.vaboot.util.ResponseMessage
 import com.gocamargo.vaboot.util.toMessageResponse
 import org.telegram.telegrambots.bots.TelegramLongPollingBot
@@ -12,8 +13,8 @@ import org.telegram.telegrambots.meta.api.objects.Update
 
 class TelegramConnectionComponent: TelegramLongPollingBot(){
 
-    private val telegramToken = propertiesConfig[telegram_token]
-    private val telegramUsername = propertiesConfig[telegram_username]
+    private val telegramToken = PropertySource.getProperty("telegram.bot.token")
+    private val telegramUsername = PropertySource.getProperty("telegram.bot.username")
 
     override fun getBotUsername(): String = telegramUsername!!
 

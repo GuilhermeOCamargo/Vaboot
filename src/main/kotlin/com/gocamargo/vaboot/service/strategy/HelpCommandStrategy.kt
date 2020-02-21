@@ -8,7 +8,7 @@ import com.gocamargo.vaboot.util.parseMessageCatchinExeption
 
 object HelpCommandStrategy: CommandService{
     override fun handleCommand(requestMessage: String): List<ResponseMessage> {
-        val parsedMessage = requestMessage.parseMessageCatchinExeption(){null}
+        val parsedMessage = requestMessage.parseMessageCatchinExeption{null}
         lateinit var response: List<ResponseMessage>
         if(parsedMessage.isNullOrEmpty()){
             response = ApplicationCommands.values()

@@ -3,6 +3,7 @@ package com.gocamargo.vaboot.service
 import com.gocamargo.vaboot.configuration.PropertySource
 import com.gocamargo.vaboot.enums.ApplicationCommands
 import com.gocamargo.vaboot.util.ResponseMessage
+import com.gocamargo.vaboot.util.cast
 import com.gocamargo.vaboot.util.runCathingException
 import com.gocamargo.vaboot.util.toMessageResponse
 import org.telegram.telegrambots.bots.TelegramLongPollingBot
@@ -20,7 +21,9 @@ class TelegramConnectionComponent: TelegramLongPollingBot(){
 
     override fun onUpdateReceived(update: Update?) {
         if(update!!.hasMessage()){
-            runCathingException({ handleMessage(update.message.text) }){  listOf(mapOf("message" to it.message)) }
+            runCathingException({ handleMessage(update.message.text) }){  listOf(mapOf("message" to it.message)) }!!
+                    .cast<List<ResponseMessage>>()
+                    .map { response -> sendResponse(response.toMessageResponse(), update.message.chatId) }
             /*runCathingException() { handleMessage(update.message.text) }
                     .map{response -> sendResponse(response.toMessageResponse(), update.message.chatId)  }*/
 

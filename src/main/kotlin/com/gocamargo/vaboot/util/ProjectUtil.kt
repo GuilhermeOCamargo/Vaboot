@@ -7,6 +7,8 @@ import javax.xml.bind.ValidationException
 
 typealias ResponseMessage = Map<String, Any?>
 
+inline fun <T> Any.cast(): T = this as T
+
 inline fun ResponseMessage?.toMessageResponse(): String?{
     if(!this.isNullOrEmpty()){
         var message = ""
@@ -18,7 +20,7 @@ inline fun ResponseMessage?.toMessageResponse(): String?{
         return null
 }
 
-inline fun runCathingException(block: () -> List<ResponseMessage>?, catch: (e: Throwable) -> Any?): Any? =
+inline fun runCathingException(block: () -> Any?, catch: (e: Throwable) -> Any?): Any? =
         try{
             block()!!
         } catch (exception: Throwable){

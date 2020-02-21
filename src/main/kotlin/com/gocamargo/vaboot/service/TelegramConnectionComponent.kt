@@ -20,8 +20,9 @@ class TelegramConnectionComponent: TelegramLongPollingBot(){
 
     override fun onUpdateReceived(update: Update?) {
         if(update!!.hasMessage()){
-            runCathingException { handleMessage(update.message.text) }
-                    .map{response -> sendResponse(response.toMessageResponse(), update.message.chatId)  }
+            runCathingException({ handleMessage(update.message.text) }){  listOf(mapOf("message" to it.message)) }
+            /*runCathingException() { handleMessage(update.message.text) }
+                    .map{response -> sendResponse(response.toMessageResponse(), update.message.chatId)  }*/
 
         }
     }

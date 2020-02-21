@@ -18,16 +18,23 @@ inline fun ResponseMessage?.toMessageResponse(): String?{
         return null
 }
 
-inline fun runCathingException(block: () -> List<ResponseMessage>?): List<ResponseMessage> =
+inline fun runCathingException(block: () -> List<ResponseMessage>?, catch: (e: Throwable) -> Any?): Any? =
         try{
             block()!!
         } catch (exception: Throwable){
             println(exception.cause)
-            listOf(mapOf("message" to exception.message))
+            catch(exception)
         }
 
 inline fun Element?.filterElementByClass(className: String): Boolean =
         this!=null && !this.getElementsByClass(className).isNullOrEmpty()
+
+inline fun String.parseMessageCatchinExeption(): String=
+        try{
+            this.substring(this.indexOf(" ")).trim()
+        }catch (exception: StringIndexOutOfBoundsException){
+            this
+        }
 
 fun String.parseMessage(): String =
         try{

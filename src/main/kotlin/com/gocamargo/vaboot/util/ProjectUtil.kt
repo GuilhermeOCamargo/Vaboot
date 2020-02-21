@@ -31,11 +31,11 @@ inline fun runCathingException(block: () -> Any?, catch: (e: Throwable) -> Any?)
 inline fun Element?.filterElementByClass(className: String): Boolean =
         this!=null && !this.getElementsByClass(className).isNullOrEmpty()
 
-inline fun String.parseMessageCatchinExeption(): String=
+inline fun String.parseMessageCatchinExeption(block: () -> String?): String? =
         try{
             this.substring(this.indexOf(" ")).trim()
         }catch (exception: StringIndexOutOfBoundsException){
-            this
+            block()
         }
 
 fun String.parseMessage(): String =

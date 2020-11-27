@@ -12,8 +12,8 @@ import org.telegram.telegrambots.meta.api.objects.Update
 
 class TelegramConnectionComponent: TelegramLongPollingBot(){
 
-    private val telegramToken = PropertySource["telegram.bot.token"]
-    private val telegramUsername = PropertySource["telegram.bot.username"]
+    private val telegramToken = System.getenv("TELEGRAM_TOKEN")
+    private val telegramUsername = System.getenv("TELEGRAM_USERNAME")
 
     override fun getBotUsername(): String = telegramUsername!!
 

@@ -1,1 +1,1 @@
-worker: sh target/bin/VaBoot
+worker: sh target/bin/vaboot

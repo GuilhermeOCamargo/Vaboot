@@ -89,7 +89,7 @@
                     <programs>
                         <program>
                             <mainClass>com.gocamargo.vaboot.VaBootApplicationKt</mainClass>
-                            <name>workerBot</name>
+                            <name>vaboot</name>
                         </program>
                     </programs>
                 </configuration>

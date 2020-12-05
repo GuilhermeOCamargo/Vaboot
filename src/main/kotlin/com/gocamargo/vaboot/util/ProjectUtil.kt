@@ -2,6 +2,8 @@ package com.gocamargo.vaboot.util
 
 import com.gocamargo.vaboot.configuration.MessageSource
 import com.gocamargo.vaboot.exception.MessageParseException
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import org.jsoup.nodes.Element
 import javax.xml.bind.ValidationException
 
